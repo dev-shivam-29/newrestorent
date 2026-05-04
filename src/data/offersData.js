@@ -1,10 +1,9 @@
-import happyHour from "../assets/images/pizza.jpg";
-import weekendBrunch from "../assets/images/bruschetta.jpg";
-import comboMeals from "../assets/images/caesar-salad.jpg";
-import liveMusic from "../assets/images/dessert.jpg";
-import chefSpecial from "../assets/images/fresh-juice.jpg";
-import privateParties from "../assets/images/pizza.jpg";
-
+import happyHour from "../assets/hero.jpg";
+import weekendBrunch from "../assets/hero.jpg";
+import comboMeals from "../assets/hero.jpg";
+import liveMusic from "../assets/hero.jpg";
+import chefSpecial from "../assets/hero.jpg";
+import privateParties from "../assets/hero.jpg";
 const offersData = [
   {
     id: 1,
