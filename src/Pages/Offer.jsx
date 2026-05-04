@@ -1,7 +1,7 @@
 
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import offersData, { events } from "../data/offersData";
+import offersData, { events } from "../data/offersData.js";
 
 const Offers = () => {
   const [timeLeft, setTimeLeft] = useState({});
