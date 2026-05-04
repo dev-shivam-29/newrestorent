@@ -1,0 +1,206 @@
+@import url("https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&display=swap");
+@import "tailwindcss";
+
+* {
+  font-family: saira, sans-serif;
+}
+
+@theme {
+  --color-primary: #c41e3a;
+  --color-secondary: #c41e3a;
+  --color-accent: #1e3a8a;
+  --color-dark: #1f2937;
+}
+
+@keyframes heroPanZoom {
+  0% {
+    transform: scale(1.02) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: scale(1.1) translate3d(-1.5%, -1%, 0);
+  }
+  100% {
+    transform: scale(1.05) translate3d(1.5%, 1%, 0);
+  }
+}
+
+@keyframes heroPanZoomAlt {
+  0% {
+    opacity: 0.45;
+  }
+  50% {
+    opacity: 0.58;
+  }
+  100% {
+    opacity: 0.48;
+  }
+}
+
+@keyframes heroVignettePulse {
+  0% {
+    opacity: 0.78;
+  }
+  50% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0.8;
+  }
+}
+
+.hero-bg-layer {
+  animation: heroPanZoom 22s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+.hero-video-layer {
+  animation: heroPanZoom 24s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+.hero-bg-layer-delay {
+  animation: heroPanZoomAlt 18s ease-in-out infinite;
+  will-change: opacity;
+}
+
+.hero-vignette {
+  background: radial-gradient(
+    circle at 50% 45%,
+    rgba(0, 0, 0, 0.15) 0%,
+    rgba(0, 0, 0, 0.72) 68%,
+    rgba(0, 0, 0, 0.88) 100%
+  );
+  position: absolute;
+  inset: 0;
+  animation: heroVignettePulse 10s ease-in-out infinite alternate;
+  will-change: opacity;
+}
+
+.hero-store-btn {
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(0, 0, 0, 0.62);
+  border-radius: 0.75rem;
+  padding: 0.45rem 1.1rem 0.55rem;
+  min-width: 180px;
+  text-align: left;
+  transition: all 220ms ease;
+}
+
+.hero-store-btn:hover {
+  border-color: rgba(255, 255, 255, 0.72);
+  background: rgba(0, 0, 0, 0.8);
+  transform: translateY(-1px);
+}
+
+.bounce-cards {
+  position: relative;
+  max-width: 100%;
+}
+
+.bounce-card-slot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: center center;
+  opacity: 0;
+  animation: bounceCardsIn 650ms forwards;
+}
+
+.bounce-card {
+  width: 170px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 18px;
+  border: 4px solid rgba(255, 255, 255, 0.92);
+  box-shadow: 0 18px 30px rgba(0, 0, 0, 0.45);
+  display: block;
+}
+
+.custom-bounceCards--space .bounce-card {
+  width: 320px;
+  height: 420px;
+}
+
+.custom-bounceCards--ambience {
+  height: 520px !important;
+}
+
+.custom-bounceCards--ambience .bounce-card {
+  width: 320px;
+  height: 420px;
+}
+
+.custom-bounceCards--signature .bounce-card {
+  width: 280px;
+  height: 220px;
+}
+
+.bounce-card-slot-hover {
+  transition:
+    transform 220ms ease,
+    filter 220ms ease;
+}
+
+.bounce-card-slot-hover:hover {
+  transform: scale(1.05) !important;
+  filter: brightness(1.06);
+}
+
+@keyframes bounceCardsIn {
+  0% {
+    opacity: 0;
+    margin-top: 24px;
+  }
+  70% {
+    opacity: 1;
+    margin-top: -4px;
+  }
+  100% {
+    opacity: 1;
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .bounce-cards {
+    width: 100% !important;
+    height: 220px !important;
+  }
+
+  .bounce-card {
+    width: 120px;
+    height: 160px;
+  }
+
+  .custom-bounceCards--space {
+    height: 340px !important;
+  }
+
+  .custom-bounceCards--space .bounce-card {
+    width: 190px;
+    height: 260px;
+  }
+
+  .custom-bounceCards--ambience {
+    height: 340px !important;
+  }
+
+  .custom-bounceCards--ambience .bounce-card {
+    width: 190px;
+    height: 260px;
+  }
+  /* .image-class {
+    z-index: 1;
+  }
+
+  .heading {
+    position: relative;
+    z-index: 10;
+  }
+  .heading {
+  margin-top: 40px;
+} */
+  /* .heading {
+    margin-top: 40px;
+  } */
+}
