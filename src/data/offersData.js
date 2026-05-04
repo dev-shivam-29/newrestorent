@@ -1,9 +1,3 @@
-import happyHour from "../assets/hero.jpg";
-import weekendBrunch from "../assets/hero.jpg";
-import comboMeals from "../assets/hero.jpg";
-import liveMusic from "../assets/hero.jpg";
-import chefSpecial from "../assets/hero.jpg";
-import privateParties from "../assets/hero.jpg";
 const offersData = [
   {
     id: 1,
@@ -13,7 +7,7 @@ const offersData = [
     type: "Discount",
     rating: 4.5,
     popular: true,
-    image: happyHour,
+    image: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=800",
     endTime: new Date().getTime() + 86400000 * 7,
   },
   {
@@ -24,7 +18,7 @@ const offersData = [
     type: "Special",
     rating: 4.7,
     popular: false,
-    image: weekendBrunch,
+    image: "https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?w=800",
     endTime: new Date().getTime() + 86400000 * 5,
   },
   {
@@ -35,7 +29,7 @@ const offersData = [
     type: "Discount",
     rating: 4.6,
     popular: true,
-    image: comboMeals,
+    image: "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=800",
     endTime: new Date().getTime() + 86400000 * 10,
   },
   {
@@ -46,7 +40,7 @@ const offersData = [
     type: "Special",
     rating: 4.8,
     popular: true,
-    image: chefSpecial,
+    image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800",
     endTime: new Date().getTime() + 86400000 * 3,
   },
   {
@@ -57,7 +51,7 @@ const offersData = [
     type: "Discount",
     rating: 4.4,
     popular: false,
-    image: liveMusic,
+    image: "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=800",
     endTime: new Date().getTime() + 86400000 * 2,
   },
   {
@@ -68,7 +62,7 @@ const offersData = [
     type: "Special",
     rating: 4.9,
     popular: true,
-    image: privateParties,
+    image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800",
     endTime: new Date().getTime() + 86400000 * 14,
   },
 ];
@@ -78,21 +72,21 @@ const events = [
     id: 1,
     title: "Live Music Night",
     description: "Enjoy live performances every Friday night",
-    image: liveMusic,
+    image: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=800",
     icon: "🎶"
   },
   {
     id: 2,
     title: "Chef Special Event",
     description: "Exclusive dining experience with our head chef",
-    image: chefSpecial,
+    image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800",
     icon: "👨‍🍳"
   },
   {
     id: 3,
     title: "Private Parties",
     description: "Host your special events in our private dining area",
-    image: privateParties,
+    image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800",
     icon: "🎉"
   }
 ];
