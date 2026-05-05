@@ -8,7 +8,7 @@ const offersData = [
     rating: 4.5,
     popular: true,
     image: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=800",
-    endTime: new Date().getTime() + 86400000 * 7,
+    endTime: new Date().getTime() + 86400000 * 7, 
   },
   {
     id: 2,
