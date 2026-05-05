@@ -1,15 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-import aboutHero from "../assets/images/about-hero.jpg";
-import chefProfile from "../assets/images/chef-profile.jpg";
-import freshIngredients from "../assets/images/fresh-ingredients.jpg";
-import hospitality from "../assets/images/hospitality.jpg";
-import quality from "../assets/images/quality.jpg";
-import ambience from "../assets/images/ambience.jpg";
-import sustainability from "../assets/images/fresh-juice.jpg";
-import ambienceDining from "../assets/images/ambience-dining.jpg";
-import ambienceTerrace from "../assets/images/ambience-terrace.jpg";
 
 const About = () => {
   const [activeValue, setActiveValue] = useState(null);
@@ -17,27 +8,27 @@ const About = () => {
   const values = [
     {
       title: "Fresh Ingredients",
-      image: freshIngredients,
+      image: "/images/fresh-ingredients.jpg",
       description: "Sourced daily for authentic taste and freshness.",
     },
     {
       title: "Hospitality",
-      image: hospitality,
+      image: "/images/hospitality.jpg",
       description: "Warm service that makes every guest feel at home.",
     },
     {
       title: "Quality",
-      image: quality,
+      image: "/images/quality.jpg",
       description: "Consistent standards in every dish and every detail.",
     },
     {
       title: "Ambience",
-      image: ambience,
+      image: "/images/ambience.jpg",
       description: "Elegant atmosphere for memorable dining moments.",
     },
     {
       title: "Sustainability",
-      image: sustainability,
+      image: "/images/sustainability.jpg",
       description: "Responsible practices for a better tomorrow.",
     },
   ];
@@ -66,10 +57,10 @@ const About = () => {
   ];
 
   const ambienceShowcase = [
-    { image: ambienceDining, caption: "Live kitchen corner and warm lights" },
-    { image: ambienceTerrace, caption: "Elegant seating for family dinners" },
-    { image: ambienceDining, caption: "Casual lounge for quick bites" },
-    { image: ambienceTerrace, caption: "Dessert bar with cozy evening vibe" },
+    { image: "/images/ambience-dining.jpg", caption: "Live kitchen corner and warm lights" },
+    { image: "/images/ambience-terrace.jpg", caption: "Elegant seating for family dinners" },
+    { image: "/images/ambience.jpg", caption: "Casual lounge for quick bites" },
+    { image: "/images/about-hero.jpg", caption: "Dessert bar with cozy evening vibe" },
   ];
 
   return (
@@ -84,8 +75,9 @@ const About = () => {
       {/* BRAND STORY */}
       <section className="grid md:grid-cols-2 gap-10 px-6 md:px-10 py-20 max-w-6xl mx-auto items-center">
         <img
-          src={aboutHero}
+          src="/images/about-hero.jpg"
           alt="Restaurant story"
+          onError={(e) => { e.target.src = "/images/ambience.jpg"; }}
           className="w-full h-[350px] object-cover rounded-2xl shadow-lg hover:scale-[1.02] transition duration-300"
         />
         <div>
@@ -109,8 +101,9 @@ const About = () => {
             Founder & Head Chef
           </h2>
           <img
-            src={chefProfile}
+            src="/images/chef-profile.jpg"
             alt="Chef"
+            onError={(e) => { e.target.src = "/images/about-hero.jpg"; }}
             className="rounded-full w-32 h-32 mx-auto object-cover border-4 border-orange-500 hover:scale-105 transition duration-300 shadow-lg"
           />
           <h3 className="text-2xl font-bold mt-5 text-gray-800">Chef Marco Rodriguez</h3>
@@ -165,6 +158,7 @@ const About = () => {
             <img
               src={activeValue.image}
               alt={activeValue.title}
+              onError={(e) => { e.target.src = "/images/ambience.jpg"; }}
               className="mt-4 w-full h-64 object-cover rounded-lg"
             />
             <p className="mt-4 text-gray-600">

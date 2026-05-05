@@ -1,15 +1,10 @@
 import { useState, useMemo } from "react";
 import { useLocation } from "react-router-dom";
-import indoorImg from "../assets/images/ambience-1.jpg";
-import outdoorImg from "../assets/images/ambience-terrace.jpg";
-import privateImg from "../assets/images/private-parties.jpg";
-import familyImg from "../assets/images/ambience-dining.jpg";
-
 const seatingOptions = [
-  { name: "Indoor", img: indoorImg, desc: "Cozy air-conditioned seating" },
-  { name: "Outdoor", img: outdoorImg, desc: "Open sky & fresh vibes" },
-  { name: "Private", img: privateImg, desc: "Perfect for couples" },
-  { name: "Family", img: familyImg, desc: "Spacious & comfortable" }
+  { name: "Indoor", img: "/images/indoor.jpg", desc: "Cozy air-conditioned seating" },
+  { name: "Outdoor", img: "/images/outdoor.jpg", desc: "Open sky & fresh vibes" },
+  { name: "Private", img: "/images/private.jpg", desc: "Perfect for couples" },
+  { name: "Family", img: "/images/family.jpg", desc: "Spacious & comfortable" }
 ];
 
 const allTimeSlots = ["11:00","12:00","13:00","18:00","19:00","20:00"];
@@ -74,7 +69,7 @@ const Reservation = () => {
 
       {/* HERO HEADER */}
       <div className="h-[60vh] bg-cover bg-center relative"
-        style={{backgroundImage:"url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0')"}}>
+        style={{backgroundImage:"url('/images/about-hero.jpg')"}}>
         <div className="absolute inset-0 bg-black/60 flex flex-col justify-center items-center text-white text-center">
           <h1 className="text-5xl font-bold">Reserve Your Table</h1>
           <p className="mt-3 text-lg">Book your perfect dining experience</p>
@@ -168,7 +163,7 @@ const Reservation = () => {
                       formData.seating===s.name?"border-orange-500 border-2":"border-gray-200 hover:shadow"}`}>
                     <img src={s.img}
                       alt={s.name}
-                      onError={(e)=> e.target.src=indoorImg}
+                      onError={(e)=> e.target.src="/images/indoor.jpg"}
                       className="h-32 w-full object-cover"/>
                     <div className="p-2">
                       <h4 className="font-semibold">{s.name}</h4>
