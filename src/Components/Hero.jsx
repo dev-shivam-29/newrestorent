@@ -1,9 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom"; // ✅ ADD THIS
+import { Link } from "react-router-dom";
+import heroImg from "../assets/hero.jpg";
 
 const Hero = () => {
   return (
-    <div className="h-[90vh] bg-[url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092')] bg-cover bg-center flex items-center justify-center">
+    <div className="h-[90vh] bg-cover bg-center flex items-center justify-center" style={{ backgroundImage: `url(${heroImg})` }}>
       <div className="bg-black/60 p-8 rounded text-center">
         <h1 className="text-4xl md:text-6xl text-white font-bold mb-4">
           Welcome to Our Restaurant

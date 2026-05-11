@@ -1,10 +1,11 @@
 import { useState, useMemo } from "react";
 import { useLocation } from "react-router-dom";
 const seatingOptions = [
-  { name: "Indoor", img: "/images/indoor.jpg", desc: "Cozy air-conditioned seating" },
-  { name: "Outdoor", img: "/images/outdoor.jpg", desc: "Open sky & fresh vibes" },
-  { name: "Private", img: "/images/private.jpg", desc: "Perfect for couples" },
-  { name: "Family", img: "/images/family.jpg", desc: "Spacious & comfortable" }
+  { name: "Indoor", img: "/assets/ambience-dining.jpg", desc: "Cozy air-conditioned seating" },
+  { name: "Outdoor", img: "/assets/ambience-terrace.jpg", desc: "Open sky & fresh vibes" },
+  { name: "Private", img: "/assets/ambience-2.jpg", desc: "Perfect for couples" },
+  { name: "Family", img: "/assets/ambience-3.jpg", desc: "Spacious & comfortable" }
+  
 ];
 
 const allTimeSlots = ["11:00","12:00","13:00","18:00","19:00","20:00"];
@@ -16,7 +17,6 @@ const formatTime = (t) => {
 };
 
 const Reservation = () => {
-
   const location = useLocation();
   const params = new URLSearchParams(location.search);
 
@@ -42,7 +42,7 @@ const Reservation = () => {
   }, [formData.date, today]);
 
   const handleChange = (e) => {
-    setFormData({...formData, [e.target.name]: e.target.value});
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const changeGuests = (val) => {
@@ -57,174 +57,179 @@ const Reservation = () => {
     setShowSuccess(true);
   };
 
+  // ✅ FIXED FAQ (missing tha)
   const faqs = [
-    { q: "Can I cancel my booking?", a: "Yes, you can cancel your booking up to 2 hours before your reservation time." },
-    { q: "Do you accommodate large groups?", a: "For groups larger than 8 people, please contact us directly for special arrangements." },
-    { q: "Can we book for private events?", a: "Absolutely! We offer private event bookings. Contact us for details and availability." },
-    { q: "What's the recommended arrival time?", a: "Please arrive 10-15 minutes before your reservation time." }
+    { q: "Can I cancel my booking?", a: "Yes, up to 2 hours before reservation." },
+    { q: "Large groups allowed?", a: "Yes, contact us for arrangements." },
+    { q: "Private events?", a: "Yes, available on request." },
+    { q: "Arrival time?", a: "Please arrive 10–15 minutes early." }
   ];
 
   return (
     <div className="bg-amber-50 text-gray-800 min-h-screen">
 
-      {/* HERO HEADER */}
-      <div className="h-[60vh] bg-cover bg-center relative"
-        style={{backgroundImage:"url('/images/about-hero.jpg')"}}>
-        <div className="absolute inset-0 bg-black/60 flex flex-col justify-center items-center text-white text-center">
-          <h1 className="text-5xl font-bold">Reserve Your Table</h1>
-          <p className="mt-3 text-lg">Book your perfect dining experience</p>
+      {/* HERO */}
+      <div
+        className="h-[60vh] bg-cover bg-center relative overflow-hidden"
+        style={{ backgroundImage: `url(/assets/menubackground.jpg)` }}
+      >
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-black/30 flex flex-col justify-center items-center text-white px-6">
+          {/* Animated Content */}
+          <div className="relative z-10 max-w-4xl px-4">
+            <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-6 drop-shadow-lg animate-fade-in">
+              Reserve Your Table
+            </h1>
+            <p className="mt-3 text-orange-100 text-lg animate-slide-up">
+              Book your perfect dining experience with ease
+            </p>
+          </div>
         </div>
       </div>
 
-      <div className="px-6 py-12 max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto px-6 py-14">
 
-        {/* BOOKING STEPS */}
-        <div className="grid md:grid-cols-3 gap-6 mb-12 text-center">
-          {["Choose Date","Select Time","Confirm"].map((s,i)=>(
-            <div key={i} className="bg-white p-5 rounded-xl shadow">
-              <h3 className="text-2xl text-orange-500 font-bold">{i+1}</h3>
-              <p className="mt-2 text-gray-700">{s}</p>
+        {/* STEPS */}
+        <div className="grid md:grid-cols-3 gap-6 mb-12">
+          {["Choose Date", "Select Time", "Confirm Booking"].map((s, i) => (
+            <div
+              key={i}
+              className="bg-white rounded-2xl shadow-md p-6 text-center"
+            >
+              <div className="text-orange-500 text-3xl font-black">
+                {i + 1}
+              </div>
+              <p className="mt-2 font-semibold">{s}</p>
             </div>
           ))}
         </div>
 
-        {/* MAIN CONTENT */}
-        <div className="grid lg:grid-cols-2 gap-10 mb-12">
+        {/* MAIN */}
+        <div className="grid lg:grid-cols-2 gap-10">
 
           {/* FORM */}
-          <form onSubmit={handleSubmit} className="bg-white p-6 rounded-xl shadow space-y-3">
-            <h2 className="text-2xl font-bold mb-4 text-gray-800">Reservation Details</h2>
+          <form
+            onSubmit={handleSubmit}
+            className="bg-white rounded-3xl shadow-xl p-8 space-y-4"
+          >
+            <h2 className="text-2xl font-bold">Reservation Details</h2>
 
             <input name="name" placeholder="Full Name" onChange={handleChange}
-              className="w-full p-3 border rounded"/>
+              className="w-full p-3 rounded-xl border" />
 
             <input name="phone" placeholder="Phone Number" onChange={handleChange}
-              className="w-full p-3 border rounded"/>
+              className="w-full p-3 rounded-xl border" />
 
             <input name="email" placeholder="Email Address" onChange={handleChange}
-              className="w-full p-3 border rounded"/>
+              className="w-full p-3 rounded-xl border" />
 
             <input type="date" name="date" min={today}
               onChange={handleChange}
-              className="w-full p-3 border rounded"/>
+              className="w-full p-3 rounded-xl border" />
 
             <select name="time" onChange={handleChange}
-              className="w-full p-3 border rounded">
+              className="w-full p-3 rounded-xl border">
               <option value="">Select Time</option>
               {availableSlots.map(t => (
                 <option key={t} value={t}>{formatTime(t)}</option>
               ))}
             </select>
 
-            {/* Guests Counter */}
-            <div className="flex justify-between items-center bg-gray-50 p-3 rounded">
-              <span className="font-semibold">Number of Guests</span>
-              <div className="flex gap-3 items-center">
-                <button type="button" onClick={()=>changeGuests(-1)}
-                  className="bg-orange-500 text-white w-8 h-8 rounded flex items-center justify-center">−</button>
-                <span className="w-8 text-center font-bold">{formData.guests}</span>
-                <button type="button" onClick={()=>changeGuests(1)}
-                  className="bg-orange-500 text-white w-8 h-8 rounded flex items-center justify-center">+</button>
+            {/* GUESTS */}
+            <div className="flex justify-between items-center bg-gray-50 p-4 rounded-xl">
+              <span>Guests</span>
+              <div className="flex items-center gap-3">
+                <button type="button" onClick={() => changeGuests(-1)}
+                  className="w-8 h-8 bg-orange-500 text-white rounded-full">-</button>
+                <span>{formData.guests}</span>
+                <button type="button" onClick={() => changeGuests(1)}
+                  className="w-8 h-8 bg-orange-500 text-white rounded-full">+</button>
               </div>
             </div>
 
-            {/* Seating Selection */}
-            <div>
-              <label className="block font-semibold mb-3">Preferred Seating</label>
-              <select name="seating" value={formData.seating} onChange={handleChange}
-                className="w-full p-3 border rounded">
-                {seatingOptions.map(s => (
-                  <option key={s.name} value={s.name}>{s.name}</option>
-                ))}
-              </select>
-            </div>
-
-            {/* Special Request */}
-            <textarea name="specialRequest" placeholder="Special Requests (optional)"
+            {/* SEATING */}
+            <select name="seating" value={formData.seating}
               onChange={handleChange}
-              className="w-full p-3 border rounded" rows="3"></textarea>
+              className="w-full p-3 rounded-xl border">
+              {seatingOptions.map(s => (
+                <option key={s.name} value={s.name}>{s.name}</option>
+              ))}
+            </select>
 
-            <button className="w-full bg-orange-500 text-white py-3 rounded hover:bg-orange-600 font-semibold">
+            <textarea name="specialRequest"
+              placeholder="Special Requests"
+              onChange={handleChange}
+              className="w-full p-3 rounded-xl border"
+              rows="3"
+            />
+
+            <button className="w-full bg-orange-500 text-white py-3 rounded-xl font-bold">
               Reserve Table
             </button>
           </form>
 
-          {/* RIGHT SIDE */}
+          {/* RIGHT */}
           <div className="space-y-6">
 
-            {/* SEATING OPTIONS */}
-            <div className="bg-white p-6 rounded-xl shadow">
-              <h3 className="text-lg font-bold mb-4">Seating Options</h3>
+            <div className="bg-white rounded-3xl shadow-xl p-6">
+              <h3 className="font-bold mb-4">Seating Options</h3>
+
               <div className="grid grid-cols-2 gap-4">
                 {seatingOptions.map(s => (
-                  <div key={s.name}
-                    onClick={()=>setFormData({...formData, seating:s.name})}
-                    className={`cursor-pointer rounded-lg overflow-hidden border transition ${
-                      formData.seating===s.name?"border-orange-500 border-2":"border-gray-200 hover:shadow"}`}>
-                    <img src={s.img}
-                      alt={s.name}
-                      onError={(e)=> e.target.src="/images/indoor.jpg"}
-                      className="h-32 w-full object-cover"/>
+                  <div
+                    key={s.name}
+                    onClick={() => setFormData({ ...formData, seating: s.name })}
+                    className="cursor-pointer border rounded-xl overflow-hidden"
+                  >
+                    <img src={s.img} className="h-24 w-full object-cover" />
                     <div className="p-2">
-                      <h4 className="font-semibold">{s.name}</h4>
-                      <p className="text-sm text-gray-500">{s.desc}</p>
+                      <p className="font-semibold">{s.name}</p>
+                      <p className="text-xs text-gray-500">{s.desc}</p>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* OPENING HOURS */}
-            <div className="bg-white p-6 rounded-xl shadow">
-              <h3 className="text-lg font-bold mb-4">Opening Hours</h3>
-              <div className="space-y-2">
-                <div className="flex justify-between">
-                  <span>Monday - Thursday</span>
-                  <span className="font-semibold">11:00 AM - 10:00 PM</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Friday - Saturday</span>
-                  <span className="font-semibold text-orange-500">11:00 AM - 11:00 PM</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Sunday</span>
-                  <span className="font-semibold">10:00 AM - 10:00 PM</span>
-                </div>
-              </div>
+            <div className="bg-white rounded-3xl shadow-xl p-6">
+              <h3 className="font-bold mb-4">Opening Hours</h3>
+              <p>11 AM - 11 PM (Daily)</p>
             </div>
-          </div>
 
+          </div>
         </div>
 
-        {/* FAQ SECTION */}
-        <div className="bg-white p-8 rounded-xl shadow">
-          <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">Frequently Asked Questions</h2>
+        {/* FAQ */}
+        <div className="mt-14 bg-white rounded-3xl shadow-xl p-8">
+          <h2 className="text-2xl font-bold text-center mb-8">FAQs</h2>
+
           <div className="grid md:grid-cols-2 gap-6">
-            {faqs.map((item, i) => (
+            {faqs.map((f, i) => (
               <div key={i} className="border-l-4 border-orange-500 pl-4">
-                <h4 className="font-bold text-gray-800 mb-2">{item.q}</h4>
-                <p className="text-gray-600 text-sm">{item.a}</p>
+                <p className="font-semibold">{f.q}</p>
+                <p className="text-sm text-gray-500">{f.a}</p>
               </div>
             ))}
           </div>
         </div>
-
       </div>
 
-      {/* SUCCESS MODAL */}
+      {/* SUCCESS */}
       {showSuccess && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-          <div className="bg-white p-8 rounded-xl text-center shadow-2xl">
-            <h2 className="text-3xl font-bold text-orange-500 mb-2">Booking Confirmed! 🎉</h2>
-            <p className="text-gray-600 mb-6">We look forward to your visit!</p>
-            <button onClick={()=>setShowSuccess(false)}
-              className="bg-orange-500 text-white px-6 py-2 rounded hover:bg-orange-600">
+        <div className="fixed inset-0 bg-black/60 flex items-center justify-center">
+          <div className="bg-white p-8 rounded-2xl text-center">
+            <h2 className="text-3xl font-bold text-orange-500">
+              Booking Confirmed 🎉
+            </h2>
+            <button
+              onClick={() => setShowSuccess(false)}
+              className="mt-4 bg-orange-500 text-white px-6 py-2 rounded-xl"
+            >
               Close
             </button>
           </div>
         </div>
       )}
-
     </div>
   );
 };

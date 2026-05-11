@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
+import pizzaImg from "/public/assets/pizza.jpg";
+import menupizzaImg from "/public/assets/menupizza.jpg";
 
 const About = () => {
   const [activeValue, setActiveValue] = useState(null);
@@ -8,128 +10,123 @@ const About = () => {
   const values = [
     {
       title: "Fresh Ingredients",
-      image: "/images/fresh-ingredients.jpg",
+      image: pizzaImg,
       description: "Sourced daily for authentic taste and freshness.",
     },
     {
       title: "Hospitality",
-      image: "/images/hospitality.jpg",
+      image: menupizzaImg,
       description: "Warm service that makes every guest feel at home.",
     },
     {
       title: "Quality",
-      image: "/images/quality.jpg",
+      image: pizzaImg,
       description: "Consistent standards in every dish and every detail.",
     },
     {
       title: "Ambience",
-      image: "/images/ambience.jpg",
+      image: menupizzaImg,
       description: "Elegant atmosphere for memorable dining moments.",
     },
     {
       title: "Sustainability",
-      image: "/images/sustainability.jpg",
+      image: pizzaImg,
       description: "Responsible practices for a better tomorrow.",
     },
   ];
 
   const milestones = [
-    {
-      year: "2014",
-      title: "Launch Year",
-      note: "Started as a 30-seat family kitchen.",
-    },
-    {
-      year: "2018",
-      title: "City Recognition",
-      note: "Awarded one of the top dining spots.",
-    },
-    {
-      year: "2021",
-      title: "Second Branch",
-      note: "Expanded with a new branch across town.",
-    },
-    {
-      year: "2025",
-      title: "Culinary Events",
-      note: "Hosted seasonal chef-table experiences.",
-    },
-  ];
-
-  const ambienceShowcase = [
-    { image: "/images/ambience-dining.jpg", caption: "Live kitchen corner and warm lights" },
-    { image: "/images/ambience-terrace.jpg", caption: "Elegant seating for family dinners" },
-    { image: "/images/ambience.jpg", caption: "Casual lounge for quick bites" },
-    { image: "/images/about-hero.jpg", caption: "Dessert bar with cozy evening vibe" },
+    { year: "2014", title: "Launch", note: "Started as a small family kitchen." },
+    { year: "2018", title: "Growth", note: "Became a popular local restaurant." },
+    { year: "2021", title: "Expansion", note: "Opened second branch." },
+    { year: "2025", title: "Premium Dining", note: "Started chef experiences." },
   ];
 
   return (
     <div className="bg-amber-50 text-gray-800 min-h-screen">
-      
-      {/* HERO */}
-      <div className="bg-gradient-to-r from-orange-500 to-orange-600 text-white text-center py-20">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4">About Us</h1>
-        <p className="text-orange-100 text-lg">Our story, values, and journey</p>
-      </div>
 
-      {/* BRAND STORY */}
-      <section className="grid md:grid-cols-2 gap-10 px-6 md:px-10 py-20 max-w-6xl mx-auto items-center">
+      {/* HERO */}
+      <section className="relative h-[85vh] md:h-[90vh] flex items-center justify-center text-center overflow-hidden">
+        {/* Background Image */}
         <img
-          src="/images/about-hero.jpg"
+          src={pizzaImg}
+          className="absolute inset-0 w-full h-full object-cover object-center"
           alt="Restaurant story"
-          onError={(e) => { e.target.src = "/images/ambience.jpg"; }}
-          className="w-full h-[350px] object-cover rounded-2xl shadow-lg hover:scale-[1.02] transition duration-300"
         />
-        <div>
-          <h2 className="text-3xl font-bold text-gray-800 mb-4">Our Journey</h2>
-          <p className="text-gray-600 leading-relaxed">
-            We started as a small neighborhood kitchen with one promise: serve
-            food made with heart. Over the years, we have grown into a trusted
-            dining destination while keeping our original taste, quality, and
-            family-first values alive in every dish.
+        
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/60" />
+        
+        {/* Content */}
+        <div className="relative z-10 max-w-3xl px-4">
+          <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-6 drop-shadow-lg">
+            About Us
+          </h1>
+          <p className="text-xl md:text-2xl text-orange-100 max-w-2xl mx-auto">
+            Our story, passion and journey
           </p>
+        </div>
+      </section>
+
+      {/* STORY */}
+      <section className="max-w-6xl mx-auto px-6 py-20">
+        <div className="grid md:grid-cols-2 gap-10 items-center">
+
+          <img
+            src={pizzaImg}
+            alt="story"
+            className="rounded-3xl h-[380px] w-full object-cover shadow-lg"
+          />
+
+          <div>
+            <h2 className="text-3xl font-bold mb-4">Our Journey</h2>
+
+            <p className="text-gray-600 leading-relaxed mb-3">
+              We started as a small kitchen with a big dream — to serve food made with heart.
+            </p>
+
+            <p className="text-gray-600 leading-relaxed">
+              Today we continue with better quality, warm service and unforgettable taste.
+            </p>
+          </div>
+
         </div>
       </section>
 
       {/* CHEF */}
-      <section className="py-20 px-6 bg-white text-center">
-        <div className="max-w-4xl mx-auto">
-          <p className="text-sm font-semibold uppercase tracking-wider text-orange-600 mb-3">
-            Meet Our
-          </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
-            Founder & Head Chef
-          </h2>
-          <img
-            src="/images/chef-profile.jpg"
-            alt="Chef"
-            onError={(e) => { e.target.src = "/images/about-hero.jpg"; }}
-            className="rounded-full w-32 h-32 mx-auto object-cover border-4 border-orange-500 hover:scale-105 transition duration-300 shadow-lg"
-          />
-          <h3 className="text-2xl font-bold mt-5 text-gray-800">Chef Marco Rodriguez</h3>
-          <p className="text-orange-500 italic mt-3">
-            "Every plate should feel personal, warm, and memorable."
-          </p>
-          <p className="text-gray-600 mt-3 max-w-2xl mx-auto">
-            Founder and head chef with 15+ years of experience, known for
-            blending modern presentation with comforting, familiar flavors.
-          </p>
-        </div>
+      <section className="bg-white py-16 text-center px-6">
+        <h2 className="text-3xl font-bold">Founder & Head Chef</h2>
+        <img
+          src={menupizzaImg}
+          className="w-32 h-32 mx-auto mt-6 rounded-full object-cover border-4 border-orange-500 shadow-lg hover:scale-105 transition duration-300"
+          alt="chef"
+        />
+        <h3 className="mt-5 text-xl font-bold">Chef Marco Rodriguez</h3>
+        <p className="text-orange-500 italic mt-2">
+          "Every plate should feel personal, warm, and memorable."
+        </p>
+        <p className="text-gray-600 mt-3 max-w-xl mx-auto">
+          15+ years experience in creating modern and traditional flavors with passion for excellence.
+        </p>
       </section>
 
       {/* VALUES */}
       <section className="max-w-6xl mx-auto py-16 px-6">
-        <h2 className="text-3xl text-center font-bold mb-10 text-gray-800">Our Values</h2>
-
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+        <h2 className="text-3xl font-bold text-center mb-10">
+          Our Values
+        </h2>
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5">
           {values.map((item) => (
-            <button
+            <div
               key={item.title}
               onClick={() => setActiveValue(item)}
-              className="bg-white p-4 rounded-xl shadow-md border border-gray-200 text-center cursor-pointer hover:shadow-xl transition"
+              className="bg-white p-5 rounded-xl shadow hover:shadow-lg cursor-pointer transition-all duration-300 hover:scale-105"
             >
-              <p className="text-base md:text-lg font-semibold text-gray-800">{item.title}</p>
-            </button>
+              <h3 className="font-semibold text-lg text-gray-800">{item.title}</h3>
+              <p className="text-gray-600 text-sm mt-2">
+                Click to view details
+              </p>
+            </div>
           ))}
         </div>
       </section>
@@ -137,68 +134,61 @@ const About = () => {
       {/* MODAL */}
       {activeValue && (
         <div
-          className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 px-4"
           onClick={() => setActiveValue(null)}
+          className="fixed inset-0 bg-black/60 flex items-center justify-center p-4 z-50 backdrop-blur-sm"
         >
           <div
-            className="bg-white p-6 rounded-xl max-w-2xl w-full shadow-2xl"
             onClick={(e) => e.stopPropagation()}
+            className="bg-white rounded-xl p-6 max-w-md w-full shadow-2xl transform transition-all duration-300 hover:scale-105"
           >
-            <div className="flex items-start justify-between gap-4">
-              <h3 className="text-2xl font-bold text-orange-500">
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="text-2xl font-bold text-gray-800">
                 {activeValue.title}
-              </h3>
+              </h2>
               <button
                 onClick={() => setActiveValue(null)}
-                className="rounded-full bg-gray-200 px-3 py-1 text-sm text-gray-700 hover:bg-gray-300 transition"
+                className="text-gray-400 hover:text-gray-600 text-sm font-medium"
               >
-                Close
+                ✕
               </button>
             </div>
             <img
               src={activeValue.image}
-              alt={activeValue.title}
-              onError={(e) => { e.target.src = "/images/ambience.jpg"; }}
-              className="mt-4 w-full h-64 object-cover rounded-lg"
+              className="rounded-lg mt-4 h-52 w-full object-cover shadow-lg"
+              alt="value"
             />
-            <p className="mt-4 text-gray-600">
+            <p className="text-gray-600 mt-4">
               {activeValue.description}
             </p>
+
+            <button
+              onClick={() => setActiveValue(null)}
+              className="mt-5 w-full bg-orange-500 text-white py-2 rounded-lg"
+            >
+              Close
+            </button>
           </div>
         </div>
       )}
 
       {/* MILESTONES */}
-      <section className="py-16 px-6 bg-white">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl text-center font-bold mb-10 text-gray-800">Milestones</h2>
-
-          <div className="grid md:grid-cols-2 gap-6">
-            {milestones.map((item) => (
-              <div key={item.year} className="bg-white shadow-md border border-gray-200 rounded-xl p-5 hover:shadow-lg transition">
-                <p className="text-orange-500 font-bold text-xl">{item.year}</p>
-                <h3 className="font-semibold text-lg text-gray-800 mt-2">{item.title}</h3>
-                <p className="text-gray-500 mt-2">{item.note}</p>
+      <section className="bg-white py-16 px-6">
+        <h2 className="text-3xl font-bold text-center mb-10">
+          Our Journey
+        </h2>
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+          {milestones.map((m, index) => (
+            <div
+              key={m.year}
+              className="relative group p-6 border rounded-xl hover:shadow-lg transition-all duration-300"
+            >
+              <div className="absolute top-4 left-4 w-8 h-8 bg-orange-500 text-white rounded-full flex items-center justify-center text-sm font-bold">
+                {index + 1}
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* AMBIENCE */}
-      <section className="max-w-6xl mx-auto px-6 py-20">
-        <h2 className="text-3xl text-center font-bold mb-8 text-gray-800">Our Ambience</h2>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {ambienceShowcase.map((item, index) => (
-            <div key={index} className="group relative overflow-hidden rounded-xl">
-              <img
-                src={item.image}
-                alt={item.caption}
-                className="rounded-xl h-48 w-full object-cover group-hover:scale-110 transition duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end">
-                <p className="text-white p-4 text-sm font-medium">{item.caption}</p>
+              <div className="text-center">
+                <p className="text-orange-500 font-bold text-lg">{m.year}</p>
+                <h3 className="font-semibold text-xl mt-2">{m.title}</h3>
+                <p className="text-gray-600 text-sm mt-2">{m.note}</p>
               </div>
             </div>
           ))}
@@ -206,28 +196,31 @@ const About = () => {
       </section>
 
       {/* CTA */}
-      <section className="bg-gradient-to-r from-orange-500 to-orange-600 text-center py-12 px-6 shadow-lg">
-        <h2 className="text-2xl font-bold text-white">
-          Experience our story in person
-        </h2>
-        <p className="text-orange-100 mt-2">
-          Reserve your table today and enjoy our signature dining experience.
+      <section className="text-center py-20 bg-gradient-to-r from-orange-500 to-orange-600 text-white shadow-xl">
+        <h2 className="text-3xl md:text-4xl font-extrabold mb-6">Experience Our Story</h2>
+        <p className="text-orange-100 mt-4 text-lg max-w-2xl mx-auto">
+          Join us for an unforgettable dining experience where passion meets perfection
         </p>
-        <div className="flex gap-4 justify-center mt-6">
+        <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
           <Link
             to="/reservation"
-            className="inline-block bg-white text-orange-600 px-6 py-3 rounded-lg font-semibold hover:bg-orange-50 transition"
+            className="bg-white text-orange-600 px-8 py-4 rounded-xl font-bold hover:bg-orange-50 hover:scale-105 transition-all duration-300 shadow-lg"
           >
-            Reserve Now
+            <span className="flex items-center">
+              🍽 Reserve Your Table
+            </span>
           </Link>
           <Link
             to="/menu"
-            className="inline-block border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-orange-600 transition"
+            className="border-2 border-white bg-white text-orange-600 px-8 py-4 rounded-xl font-bold hover:bg-orange-50 hover:scale-105 transition-all duration-300 shadow-lg"
           >
-            View Menu
+            <span className="flex items-center">
+              🍽 View Our Menu
+            </span>
           </Link>
         </div>
       </section>
+
     </div>
   );
 };
