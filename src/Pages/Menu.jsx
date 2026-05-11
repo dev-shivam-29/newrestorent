@@ -737,9 +737,9 @@ const Menu = () => {
         />
       )}
 
-      <div className="max-w-7xl mx-auto px-4">
+      <div>
         {/* ULTRA PREMIUM HERO SECTION */}
-        <section className="relative mt-8 mb-16 overflow-hidden rounded-[40px] border border-white/10 shadow-[0_30px_120px_rgba(0,0,0,0.25)]">
+        <section className="relative h-[85vh] md:h-[90vh] flex items-center justify-center text-center overflow-hidden">
           {/* Background Image */}
           <div
             className="absolute inset-0 bg-cover bg-center scale-105"
@@ -748,14 +748,10 @@ const Menu = () => {
             }}
           />
           {/* Dark Overlay */}
-          /*{" "}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40" />
-          /* Orange Glow
-          <div className="absolute -left-24 top-0 h-96 w-96 rounded-full bg-orange-500/20 blur-3xl"></div>
-          Grid Overlay
-          <div className="absolute inset-0 opacity-[0.05] bg-[linear-gradient(to_right,#fff_1px,transparent_1px),linear-gradient(to_bottom,#fff_1px,transparent_1px)] bg-[size:40px_40px]"></div>
+          <div className="absolute inset-0 bg-black/60" />
+          
           {/* CONTENT */}
-          <div className="relative z-10 flex min-h-[85vh] flex-col items-center justify-center px-6 py-24 text-center md:px-12">
+          <div className="relative z-10 max-w-3xl px-4">
             {/* Top Badge */}
             <div className="mb-8 inline-flex items-center gap-3 rounded-full border border-orange-400/30 bg-white/10 px-6 py-3 backdrop-blur-xl">
               <span className="text-orange-400 text-lg">🍽️</span>
@@ -784,76 +780,14 @@ const Menu = () => {
             </nav>
 
             {/* Main Heading */}
-            <h1 className="max-w-5xl text-5xl font-black leading-tight text-white md:text-7xl drop-shadow-lg animate-pulse hover:scale-105 transition-all duration-500">
-              Discover Our
-              <span className="bg-gradient-to-r from-orange-400 via-orange-300 to-yellow-300 bg-clip-text text-transparent animate-gradient bg-gradient-to-r from-orange-600 via-yellow-500 bg-clip-text text-transparent bg-size-200% animate-pulse">
-                {" "}
-                Premium Menu
-              </span>
+            <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-6 drop-shadow-lg">
+              Our Menu
             </h1>
-
-            {/* Description */}
-            <p className="mt-8 max-w-3xl text-lg leading-relaxed text-gray-300 md:text-xl">
-              Experience handcrafted dishes prepared with premium ingredients,
-              authentic recipes, and unforgettable flavors designed to elevate
-              every dining moment into an extraordinary culinary journey.
+            <p className="text-xl md:text-2xl text-orange-100 max-w-2xl mx-auto">
+              Discover our premium culinary experience
             </p>
 
-            {/* Buttons */}
-            <div className="mt-12 flex flex-wrap items-center justify-center gap-5">
-              <button className="rounded-2xl bg-gradient-to-r from-orange-500 to-red-500 px-8 py-4 font-bold text-white shadow-[0_20px_50px_rgba(249,115,22,0.4)] transition-all duration-300 hover:scale-105 hover:from-orange-600 hover:to-red-600 hover:shadow-red-500/50 transform hover:-translate-y-1">
-                <span className="flex items-center gap-2">
-                  🍽️ Explore Dishes
-                </span>
-              </button>
-              <Link
-                to="/reservation"
-                className="rounded-2xl border-2 border-white/20 bg-white/10 px-8 py-4 font-bold text-orange-600 backdrop-blur-xl transition-all duration-300 hover:bg-orange-50 hover:scale-105 hover:shadow-lg hover:shadow-orange-500/50 transform hover:-translate-y-1"
-              >
-                <span className="flex items-center gap-2">
-                  🍽 Reserve Your Table
-                </span>
-              </Link>
-            </div>
-
-            {/* Stats */}
-            <div className="mt-16 grid gap-5 md:grid-cols-3">
-              {[
-                {
-                  value: "80+",
-                  label: "Premium Dishes",
-                },
-                {
-                  value: "12K+",
-                  label: "Happy Guests",
-                },
-                {
-                  value: "4.9★",
-                  label: "Guest Rating",
-                },
-              ].map((item) => (
-                <div
-                  key={item.label}
-                  className="rounded-3xl border border-white/10 bg-white/10 px-8 py-6 backdrop-blur-xl"
-                >
-                  <h3 className="text-4xl font-black text-white">
-                    {item.value}
-                  </h3>
-
-                  <p className="mt-2 text-sm uppercase tracking-[0.2em] text-gray-300">
-                    {item.label}
-                  </p>
-                </div>
-              ))}
-            </div>
-
-            {/* Scroll Indicator */}
-            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-              <div className="flex h-12 w-7 justify-center rounded-full border border-white/30">
-                <div className="mt-2 h-3 w-3 rounded-full bg-orange-400"></div>
-              </div>
-            </div>
-          </div>
+                      </div>
         </section>
       </div>
 

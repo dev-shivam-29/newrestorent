@@ -56,7 +56,7 @@ const signatureTransforms = [
   "rotate(-5deg)",
   "rotate(5deg) translate(50px)",
 ];
-const Home = () => {
+
   return (
     <div className="bg-amber-50 text-gray-800">
       <section className="relative h-[85vh] md:h-[90vh] flex items-center justify-center text-center overflow-hidden">
