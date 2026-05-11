@@ -84,6 +84,10 @@ const Menu = () => {
     };
   }, []);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const categories = [
     { id: "starters", name: "Starters", icon: "", count: 8 },
     { id: "main", name: "Main Course", icon: "", count: 8 },
