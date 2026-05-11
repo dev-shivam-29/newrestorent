@@ -1,11 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import BounceCards from "../Components/BounceCards";
 
-/* ===== FOOD IMAGES ===== */
-const food1 = "/assets/pizza.jpg";
-const food2 = "/assets/pasta.jpg";
-const banner = "/assets/homebanner.jpg";
+const Home = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  /* ===== FOOD IMAGES ===== */
+  const food1 = "/assets/pizza.jpg";
+  const food2 = "/assets/pasta.jpg";
+  const banner = "/assets/homebanner.jpg";
 const popularDishes = [
   {
     title: "Smoked Tandoori Platter",

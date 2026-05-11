@@ -1,22 +1,25 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-const seatingOptions = [
-  { name: "Indoor", img: "/assets/ambience-dining.jpg", desc: "Cozy air-conditioned seating" },
-  { name: "Outdoor", img: "/assets/ambience-terrace.jpg", desc: "Open sky & fresh vibes" },
-  { name: "Private", img: "/assets/ambience-2.jpg", desc: "Perfect for couples" },
-  { name: "Family", img: "/assets/ambience-3.jpg", desc: "Spacious & comfortable" }
-  
-];
-
-const allTimeSlots = ["11:00","12:00","13:00","18:00","19:00","20:00"];
-
-const formatTime = (t) => {
-  const [h, m] = t.split(":");
-  const hour = parseInt(h);
-  return `${hour > 12 ? hour - 12 : hour}:${m} ${hour >= 12 ? "PM" : "AM"}`;
-};
 
 const Reservation = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const seatingOptions = [
+    { name: "Indoor", img: "/assets/ambience-dining.jpg", desc: "Cozy air-conditioned seating" },
+    { name: "Outdoor", img: "/assets/ambience-terrace.jpg", desc: "Open sky & fresh vibes" },
+    { name: "Private", img: "/assets/ambience-2.jpg", desc: "Perfect for couples" },
+    { name: "Family", img: "/assets/ambience-3.jpg", desc: "Spacious & comfortable" }
+  ];
+
+  const allTimeSlots = ["11:00","12:00","13:00","18:00","19:00","20:00"];
+
+  const formatTime = (t) => {
+    const [h, m] = t.split(":");
+    const hour = parseInt(h);
+    return `${hour > 12 ? hour - 12 : hour}:${m} ${hour >= 12 ? "PM" : "AM"}`;
+  };
   const location = useLocation();
   const params = new URLSearchParams(location.search);
 

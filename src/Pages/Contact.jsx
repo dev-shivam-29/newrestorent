@@ -1,5 +1,5 @@
 
-// import { useState } from "react";
+// import { useState, useEffect } from "react";
 // import { Link } from "react-router-dom";
 
 // const Contact = () => {
@@ -11,6 +11,10 @@
 //   });
 
 //   const [success, setSuccess] = useState(false);
+
+//   useEffect(() => {
+//     window.scrollTo(0, 0);
+//   }, []);
 
 //   const supportFaq = [
 //     { q: "Is parking available?", a: "Yes, free parking available." },
@@ -212,7 +216,7 @@
 // };
 
 // export default Contact;
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const Contact = () => {
@@ -224,6 +228,10 @@ const Contact = () => {
   });
 
   const [success, setSuccess] = useState(false);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const supportFaq = [
     { q: "Is parking available?", a: "Yes, free parking available." },

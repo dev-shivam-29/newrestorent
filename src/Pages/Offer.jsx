@@ -1,11 +1,15 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import offersData, { events } from "../data/offersData.js";
 
 const Offers = () => {
   const [filter, setFilter] = useState("All");
   const [search, setSearch] = useState("");
   const [selectedOffer, setSelectedOffer] = useState(null);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const filteredOffers = offersData.filter((offer) => {
     return (

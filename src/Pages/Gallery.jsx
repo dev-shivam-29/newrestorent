@@ -5,6 +5,10 @@ import { Link } from "react-router-dom";
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState(null);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const galleryData = [
     {
       title: "🍔 Food Gallery",

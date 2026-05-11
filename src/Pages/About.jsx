@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import pizzaImg from "/public/assets/pizza.jpg";
@@ -6,6 +6,10 @@ import menupizzaImg from "/public/assets/menupizza.jpg";
 
 const About = () => {
   const [activeValue, setActiveValue] = useState(null);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const values = [
     {
